@@ -1,21 +1,21 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
+* Licensed to the Apache Software Foundation (ASF) under one
+* or more contributor license agreements.  See the NOTICE file
+* distributed with this work for additional information
+* regarding copyright ownership.  The ASF licenses this file
+* to you under the Apache License, Version 2.0 (the
+* "License"); you may not use this file except in compliance
+* with the License.  You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing,
+* software distributed under the License is distributed on an
+* "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+* KIND, either express or implied.  See the License for the
+* specific language governing permissions and limitations
+* under the License.
+*/
 * {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
@@ -23,73 +23,1147 @@
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
 }
 
-@font-face {
-    font-family: 'light';
-    src: url('fontface/aligntoday-light-webfont.eot');
-    src: url('fontface/aligntoday-light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fontface/aligntoday-light-webfont.woff') format('woff'),
-         url('fontface/aligntoday-light-webfont.ttf') format('truetype'),
-         url('fontface/aligntoday-light-webfont.svg#align_today45_light') format('svg');
+
+
+/* --------------------------------------------------------------------- */
+/* ----- Transitions ----- */
+/* --------------------------------------------------------------------- */
+a, button, input, .preLoad, mainContent, .k-tool-icon, .notesWrapper, .k-link, .k-button, .k-input , .k-editor-button, .k-progress, .radoloInput, i,  .comments , .textarea, textarea, .k-item, .k-editor .k-tool, .trackerData  {
+    -webkit-transition: all linear 0.2s;
+    -moz-transition: all linear 0.2s;
+    -o-transition: all linear 0.2s;
+    transition: all linear 0.2s;
+}
+
+.contactInfoEdit .radoloInput {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
+
+.contactInfoEdit .radoloInput, .button.no-style, button.no-style, .no-style, .k-state-focused, .k-list>.k-state-focused, .k-listview>.k-state-focused, .k-grid-header th.k-state-focused, td.k-state-focused, .k-button:focus:not(.k-state-disabled):not([disabled]), .k-button.k-state-focused, .k-autocomplete.k-state-border-down, .k-autocomplete.k-state-default, .k-picker-wrap.k-state-default, .k-numeric-wrap.k-state-default, .k-dropdown-wrap.k-state-default, .label div.radio, .contactInfoEdit .editConfirm   {
+    -moz-box-shadow:none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/* --------------------------------------------------------------------- */
+/* ----- No Border Radius ----- */
+/* --------------------------------------------------------------------- */
+
+.searchBox .label span.k-header.k-dropdown, li.km-actionsheet-title, .km-popup .k-item, .km-actionsheet>li>a, .k-popup .k-list .k-item, .km-actionsheet, .km-popup .k-list-container, .contactInfoEdit .radoloInput, .button.no-style, button.no-style, .no-style, .k-autocomplete.k-state-default, .k-picker-wrap.k-state-default, .k-numeric-wrap.k-state-default, .k-dropdown-wrap.k-state-default   {
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+/* --------------------------------------------------------------------- */
+/* ----- Add Box Sizing ----- */
+/* --------------------------------------------------------------------- */
+.half, .form .item input[type="text"], .radoloInput, .pageHeader .k-menu .k-item.half, .k-link, .form .item input[type="password"], .form .item input[type="email"], .k-menu .k-item .k-link, .header .k-menu .k-item, .header .k-menu .k-item .k-textbox > input, .k-autocomplete .k-input, .k-multiselect-wrap, div.k-window, .k-animation-container, .k-widget, .k-widget *, .k-animation-container *:after, .k-widget *:before, .k-animation-container *,  body.ios7, body.ios7 #drawer {
+    -o-box-sizing: border-box;
+    -icab-box-sizing: border-box;
+    -khtml-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.addClass, .spinner-css .side > .fill, .spinner-css:after, li.km-actionsheet-title, .trackerInfo, .pageHeader .backBTN i.backIcon {
+    -o-box-sizing: content-box;
+    -icab-box-sizing: content-box;
+    -khtml-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+/* --------------------------------------------------------------------- */
+/* ----- Clear After ----- */
+/* --------------------------------------------------------------------- */
+
+ul.form li.item:after, .contactInfoEdit li:after, .r-button-container:after, .r-pager-container:after {
+    display: block;
+    clear: both;
+    content:"";
+}
+
+/* --------------------------------------------------------------------- */
+/* ----- General Stuff ----- */
+/* --------------------------------------------------------------------- */
+
+.dynamicBackground {
+    position: fixed;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+}
+
+h4 {
+    font-size: 2.3rem;
+    font-family: helvetica, Arial, sans-serif;
+    margin-bottom: .66em;
+}
+
+h5 {
+    font-size: 2.16rem;
+    line-height: 1.1em;
+    font-family: helvetica, Arial, sans-serif;
+    margin-bottom: 2.16rem;
+}
+
+
+/*progress containers will contain the loading gif and the need to be relative so it does not cover the entire page*/
+.progressContainer
+{
+    position:relative;
+}
+
+.progressContainer {
+    -webkit-transition:all .25s linear;
+    -moz-transition:all .25s linear;
+    -o-transition:all .25s linear;
+    transition:all .25s linear;
+    width: 100%;
+}
+
+
+.radoloLeaving {
+    position: absolute;
+    top:0; left: 0;
+    z-index: 0;
+}
+.radoloEntering {
+    position: relative;
+    z-index: 100;
+}
+
+.radoloEntering, .radoloLeaving {
+    -webkit-transition: all linear .25s;
+    -moz-transition: all linear .25s;
+    -o-transition: all linear .25s;
+    transition: all linear .25s;
+    opacity: 1;
+
+}
+
+.radoloEntering.radoloBackward, .radoloLeaving.radoloForward {
+    /*-webkit-transform: translateX(-100%) ;
+    -ms-transform: translateX(-100%) ;
+    transform: translateX(-100%) ;*/
+    opacity: 0;
+    -webkit-transform: translateX(0) ;
+    -ms-transform: translateX(0) ;
+    transform: translateX(0) ;
+}
+
+.radoloEntering.radoloForward, .radoloLeaving.radoloBackward  {
+    /*-webkit-transform: translateX(100%) ;
+    -ms-transform: translateX(100%) ;
+    transform: translateX(100%) ;*/
+    opacity: 0;
+    -webkit-transform: translateX(0) ;
+    -ms-transform: translateX(0) ;
+    transform: translateX(0) ;
+}
+
+
+/* --------------------------------------------------------------------- */
+/* ----- We reset some of the CSS Kendo does, because it's stupid. ----- */
+/* --------------------------------------------------------------------- */
+
+.k-picker-wrap .k-select, .k-numeric-wrap .k-select, .k-dropdown-wrap .k-select {
+    min-height: initial;
+    line-height: 1em;
+}
+.k-widget.k-listview {background: none;}
+.k-autocomplete.k-state-default, .k-picker-wrap.k-state-default, .k-numeric-wrap.k-state-default, .k-dropdown-wrap.k-state-default {
+    background-image: none;
+    border: none;
+    background-color: transparent;
+    border-color: transparent;
+    width: 100%;
+    vertical-align: top;
+}
+
+.k-popup .k-list .k-state-hover, .k-popup .k-list .k-state-focused, .k-popup .k-list .k-state-selected {border: none; }
+
+.k-list .k-state-hover, .k-list .k-state-focused, .k-list .k-state-highlight, .k-list .k-state-selected, .k-dropzone {
+    -moz-border-radius: inherit;
+    -webkit-border-radius: inherit;
+    border-radius: inherit;
+}
+
+.k-popup .k-list .k-state-selected {
+    background: rgba(0,0,0,.025);
+    color: inherit;
+}
+.k-popup .k-list .k-state-focused, .k-popup .k-list .k-state-hover {
+    background: #41608A;
+    color: #ffffff;
+    border-bottom-color: rgba(153,153,153,0.7);
+}
+
+/* Using our custom Font Icons instead of Kendo's, ecause they will be pixelated on high density displays */
+
+.k-icon.k-i-close.k-cancel, .k-icon.k-i-close {
+    line-height: 1em;
+    height: auto;
+}
+
+.k-i-clock,
+.k-i-seek-w,
+.k-i-arrow-w,
+.k-i-arrow-e,
+.k-i-seek-e,
+.k-warning,
+.k-i-arrow-s,
+.k-i-arrow-n,
+.k-i-close,
+.k-i-calendar,
+.radoloLoading span.image,
+.contactAddress div.checker span,
+.manageItems td div.checker span,
+.k-button-icontext.k-grid-delete,
+.viewContact .k-link.k-header div.checker span,
+.dontforget .radoloToolTipContent:before,
+ul.rocks li:before,
+.k-tool-icon {
+    display: inline-block;
+    line-height: 1em;
+    vertical-align: middle;
+    background-image: none !important;
+    background-position: 0% 0%;
+    margin-top: 0;
     font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    -webkit-font-smoothing: antialiased;
+    font-size: inherit;
+    opacity: 1;
+    width: auto;
+    text-indent: -99999px;
+}
+
+.k-i-clock:before,
+.k-i-seek-w:before,
+.k-i-arrow-w:before,
+.k-i-arrow-e:before,
+.k-i-seek-e:before,
+.k-warning:before,
+.k-i-arrow-s:before,
+.k-i-arrow-n:before,
+.k-i-close:before,
+.k-i-calendar:before,
+.radoloLoading span.image:before,
+.k-button-icontext.k-grid-delete:before,
+.k-tool-icon:before,
+ul.rocks li:before,
+div.checker span {
+    display: inline-block;
+    float: left;
+    text-indent: 0;
+    text-align:center;
+}
+
+/* replace k-icon wtih BA Back Office icons */
+.k-icon.k-i-clock,
+.k-icon.k-i-seek-w,
+.k-icon.k-i-arrow-w,
+.k-icon.k-i-arrow-e,
+.k-icon.k-i-seek-e,
+.k-icon.k-warning,
+.k-icon.k-i-arrow-s,
+.k-icon.k-i-arrow-n,
+.k-icon.k-i-close,
+.k-icon.k-i-calendar,
+.radoloLoading span.image,
+.contactAddress div.checker span,
+.manageItems td div.checker span,
+.k-button-icontext.k-grid-delete,
+.k-tool-icon,
+ul.rocks li:before {font-family: asae}
+
+.k-icon.k-warning:before,
+.k-button-icontext.k-grid-delete:before {
+    text-decoration: inherit;
+    display: inline-block;
+    speak: none;
+}
+
+.k-icon.k-i-clock:before {content:"\e07c"}
+.k-icon.k-i-seek-w:before {content: "\e05d"}
+.k-icon.k-i-arrow-w:before {content: "\e05e"}
+.k-icon.k-i-arrow-e:before {content: "\e04d"}
+.k-icon.k-i-seek-e:before {content: "\e04c"}
+.k-icon.k-warning:before {content: "\e657";}
+.k-icon.k-i-arrow-s:before {content: "\e039";}
+.k-icon.k-i-arrow-n:before {content: "\e03b"}
+.k-icon.k-i-close:before {content:"\e62c"}
+.k-icon.k-i-calendar:before {content: "\e06b"}
+.radoloLoading span.image:before {content: "\e607" }
+.k-button-icontext.k-grid-delete:before {content:"\e044"; font-size: 1.6rem}
+.k-tool-icon.k-bold:before {content: "\e652";}
+.k-tool-icon.k-italic:before {content: "\e669";}
+.k-tool-icon.k-underline:before {content: "\e666"; }
+.k-tool-icon.k-insertUnorderedList:before {content: "\e63b";}
+.k-tool-icon.k-insertOrderedList:before {content: "\e63c";}
+
+.k-window-titlebar .k-window-actions {
+    padding-top: 0;
+    padding-right: .2em;
+    width: 5rem;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    right: 0;
+}
+.k-calendar .k-link.k-state-hover, .k-window-titlebar .k-link,   .k-window-titlebar .k-link.k-state-hover {
+    width: auto;
+    line-height: 1em;
+    height: auto;
+    padding: 0;
+    vertical-align: baseline;
+    border: none;
+    background: none;
+    opacity: 1;
+}
+
+.k-loading-mask, .k-loading-image, .k-loading-text {
+    position: absolute;
+    opacity: .7;
+    z-index: 90;
+    overflow: hidden;
+    min-height: 7.5rem;
+    background-color: transparent;
+}
+
+.k-loading-image { background-image: url(/images/loading.GIF); }
+
+.k-loading-color {
+    filter: alpha(opacity=100);
+    opacity: 1;
+    background-color: #F1F1F1;
+}
+
+#swappableContentMasterApplication, .swappableContentMasterApplication, .radoloEntering, .radoloLeaving {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: table;
+    z-index: 0;
+}
+.radoloEntering {z-index: 50}
+
+.mainContent {
+    padding: 14.3rem 2rem 8rem;
+    display: table-cell;
+    vertical-align: middle;
+    overflow-x: hidden;
+}
+
+/* ----- App buttons ----- */
+
+.buttonControls {
+    border: none;
+    background: rgba(35, 31, 32, 0.6);
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    line-height: 1em;
+    color: #FFFFFF;
+    padding: 3rem 3.6rem;
+    min-width: 12.1rem;
+    min-height: 12.1rem;
+    text-decoration: none;
+    font-family: heavy;
+    font-size: 1.65rem;
+    margin: 0 .7rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.buttonControls:hover {opacity: .8}
+.buttonControls span {display: block; line-height: 1em;}
+.buttonControls i {
+    display: block;
+    text-align: center;
+    font-size: 5rem;
+    margin-bottom: 1.2rem;
+}
+
+.buttonControls.start {
+    font-size: 5.5rem;
+    font-family: heavy;
+    padding: 3.25rem;
+    text-transform: uppercase;
+    width: auto;
+    height: auto;
+}
+
+.swipeInfo {
+    font-size: 2rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-family: heavy;
+    padding: 0.5rem 0 3.7rem;
+    line-height: 1em;
+}
+.doneMessage {
+    color: #FFFFFF;
+    font-size: 2.5rem;
+    padding-bottom: 1.2rem;
+    text-transform: uppercase;
+}
+
+
+/* ------ Tracking Info ------ */
+.shadow {text-shadow: 0 0 6px rgba(0,0,0,.6);}
+.trackerInfo {
+    color: #FFFFFF;
+    background: rgba(35, 31, 32, 0.6);
+    margin: 0 -2rem;
+    position: relative;
+    margin-bottom: 1.1rem;
+}
+
+.trackerData {
+    padding: 3rem 0;
+    width: 100%;
+    height: 100%;
+}
+.trackerData > div {
+    line-height: 1em;
+    width: 100%;
+    text-align: center;
+    letter-spacing: -.03em;
+}
+.trackerInfo .number {
+    font-size: 9.2rem;
+    font-family: medium;
+}
+
+.trackerInfo  .numberType {
+    font-family: heavy;
+    text-transform: uppercase;
+    font-size: 	1.87rem;
+}
+
+/* Tracking */
+.tracking .trackerData {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.tracking .trackerInfo > div {opacity: 0; z-index: 0;}
+.tracking .trackerInfo > div.active {
+    opacity: 1;
+    z-index: 100;
+    position: relative;
+}
+
+/* Finished */
+.finish .trackerInfo .number {font-size: 6.3rem}
+.finish .trackerInfo .numberType {font-size: 1.78rem}
+.finish .trackerInfo {
+    margin-bottom: .5rem;
+    padding: 0 1.6rem;
+}
+
+.finish .trackerData {padding: 1.5rem 0}
+.trackerInfo button.trackerBTN {
+    width: 50%;
+    height: 100%;
+    top: 0;
+    border: none;
+    opacity: 0;
+    cursor: pointer;
+    /*display: none;*/
+}
+.trackerInfo button.trackerBTN:hover {opacity: .1}
+.finish .trackerInfo.socialShare {
+    font-size: 1.36rem;
+    font-family: heavy;
+    padding: 1rem 0;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+.socialShare > * {
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0 .5rem;
+}
+.socialShare i {font-size: 3rem;}
+.socialShare a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+/* ------ Page Footer ------ */
+
+footer.appFooter {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    z-index: 10000;
+    height: 8rem;
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65)));
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+    background: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+    background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+}
+footer.appFooter a {color: #F5F5F5; text-decoration: none}
+footer.appFooter i {display: block;}
+a.sponsorLogo {font-size: 1.2rem; bottom: 1.5rem; left: 1.5rem;}
+a.sponsorLogo i {font-size:  2.08rem}
+a.asaeFoundationLogo {font-size: 3.168rem; bottom: 1.5rem; right: 1.5rem; }
+
+footer.appFooter img {
+    max-height: 3.168rem;
+    margin: .4rem 0 0 0;
+    display: block;
+    max-width: 10rem;
+}
+
+/* ------------------------------------- */
+/* ----- page preloader ----- */
+/* ------------------------------------- */
+
+.preLoad {
+    background-color: #333333;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 150;
+}
+.preLoad div.position {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -3.6rem;
+    margin-left: -3.6rem;
+    width: 7.2rem;
+    height: 7.2rem;
+}
+
+.waitContainer {
+    background: rgba(97, 97, 97, 0.7);
+    position: relative;
+    top: -2rem;
+    display: none;
+}
+
+.radoloLoading {
+    width: 20.1rem;
+    padding: 0;
+    margin: 0 auto;
+    overflow: hidden;
+    color: #ffffff;
+    font-family: thin;
+    font-size: 1.8rem;
+    height: 5rem;
+    line-height: 5rem;
+    text-align: center;
+}
+
+.radoloLoading span.image {
+    margin-right: .7rem;
+    -moz-animation: spin 2s infinite linear;
+    -o-animation: spin 2s infinite linear;
+    -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+}
+
+/* ------------------------------------- */
+/* ----- General Form stuff ----- */
+/* ------------------------------------- */
+
+span.reqtxt {
+    display: block;
+    font-size: 1.3rem;
+    text-transform: initial;
+    font-family: lighto_blique;
+    line-height: 1em;
+    color: #D86161;
+    display: none;
+}
+
+ul.form li.item {
+    margin-bottom: 1rem;
+    list-style: none;
+}
+
+ul.form li.item.submit {padding-top: 1rem; margin-bottom: 2rem;}
+
+.label.long {font-size: 1.8rem; font-family: light}
+input[disabled], .button:disabled {opacity: .5; cursor: not-allowed;}
+input[type="text"], input[type="password"], .radoloInput {
+    height: 5.5rem;
+    width: 100%;
+    line-height: 5.5rem;
+    font-family: helvetica, Arial, sans-serif;
+    border: none;
+    color: #575757;
+    font-size: 2.5rem;
+    text-indent: 1.1rem;
+    -moz-box-shadow: 0 2px rgba(35, 31, 32, 0.2);
+    -webkit-box-shadow: 0 2px rgba(35, 31, 32, 0.2);
+    box-shadow: 0 2px rgba(35, 31, 32, 0.2);
+    -moz-user-select: text;
+    -webkit-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+.button, .r-page-size-container {
+    position: relative;
+    background: #AAAAAA;
+    font-family: helvetica, Arial, sans-serif;
+    display: block;
+    height: 6rem;
+    line-height: 6rem;
+    border-radius: 6rem;
+    font-size: 2.16rem;
+    color: #ffffff;
+    width: 100%;
+    text-align: center;
+    border: none;
+    -moz-box-shadow: 0 2px rgba(35, 31, 32, 0.2);
+    -webkit-box-shadow: 0 2px rgba(35, 31, 32, 0.2);
+    box-shadow: 0 2px rgba(35, 31, 32, 0.2);
+    cursor: pointer;
+}
+
+.button.dark {background: #606060;}
+.button.light {background: #AAAAAA;}
+.button.orange {background: #E98D23;}
+
+.button.small, .r-page-size-container {
+    height: 4.5rem;
+    line-height: 4.5rem;
+    font-size: 1.5rem;
+}
+.button.small.no-style {
+    line-height: 1.3em;
+}
+
+.button.no-style, button.no-style, .no-style {
+    border: none;
+    background: none;
+    line-height: inherit;
+    color: inherit;
+    width: auto;
+    display: inline-block;
+    height: auto;
+    font-size: initial;
+}
+.button.small.no-style {font-size: 1.5rem;}
+.selectWrap {position: relative;}
+.r-page-size-container {
+    clear: both;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+.r-page-size-container select {
+    background: none;
+    border: none;
+    width: 100%;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    height: inherit;
+    position: relative;
+    z-index: 10;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: block;
+    padding-left: 1em;
+}
+.r-page-size-container:after {
+    position: absolute;
+    right: 1rem;
+    top: 0;
+    height: 100%;
+    width: 3rem;
+    text-align: center;
+    z-index: 1;
+    color: inherit;
+    line-height: inherit;
+    font-size: 125%;
+    font-family: asae;
+    text-indent: 0;
+    content: "\e039";
+}
+
+.r-pager-container:after {
+    height: 1px;
+}
+
+/* ------------------------------------- */
+/* Page Header */
+/* ------------------------------------- */
+
+body.login .appContent {padding: 1.2em}
+
+.appContent.dailyHuddle { padding-top: 11rem; }
+
+.pageHeader .actionMenu {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.actionMenu div.checker span, .actionMenu div.radio span {
+    background: #ffffff;
+    color: #E78E3F;
+}
+
+.pageHeader .k-menu .k-item {border-top: none;}
+.pageHeader .k-menu .k-item.separator {
+    background: rgba(255,255,255,.2);
+    border: none;
+    color: #FAE8D7;
+}
+.pageHeader .k-menu .k-item.separator + .k-item { border: none; }
+.pageHeader .k-menu .k-item .half.first {border-right: 1px solid #F8CE69}
+.pageHeader .k-menu .k-item.half {
+    width: 50%;
+    overflow: hidden;
+    float: left;
+}
+
+.pageHeader .k-menu .k-group .k-item.half>.k-link {
+    min-width: 100%;
+    font-size: 1.5rem;
+}
+
+.pageHeader .k-menu .k-animation-container {
+    right: 1rem !important;
+    left: auto !important;
+    max-width: 30rem;
+}
+
+.pageHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    background: #F89F33;
+    height: 5rem;
+    color: #ffffff;
+}
+
+.pageHeader .k-menu.k-header, .k-menu .k-item, .k-widget.k-menu-horizontal>.k-item {
+    background: none;
+    border: none;
+}
+
+.pageHeader h4 {
+    font-size: 2rem;
+    //font-family: light;
+    font-weight: normal;
+    color: #ffffff;
+    text-align: center;
+    height: 5rem;
+    line-height: 5rem;
+    margin-left: 6rem;
+    margin-right: 6rem;
+    white-space: nowrap;
+}
+
+.pageHeader .k-icon.k-i-arrow-s { display: none; }
+.pageHeader .k-menu > .k-item > span.k-link i {
+    height: 6.3rem;
+    line-height: 6rem;
+    display: block;
+    width: 6rem;
+    text-align: center;
+    font-size: 2.2rem;
+}
+.pageHeader .k-menu .k-item span.k-link { padding: 0;}
+.pageHeader .k-menu .k-group {
+    background: #41608A;
+    border: none;
+}
+.pageHeader .k-menu .k-item>.k-link { font-size: 1.8rem; }
+
+.k-state-active, .k-state-active:hover, .k-active-filter, .k-tabstrip .k-state-active {
+    background-color: transparent;
+    border-color: transparent;
+    color: inherit;
+}
+
+.pageHeader .k-menu .k-group .k-item>.k-link {
+    padding: 1.5rem 2.5rem 1.5rem 1.5rem;
+    min-width: 24.5rem;
+    //font-family: light;
+    white-space: normal;
+}
+
+.pageHeader .k-menu .k-group .k-item.half.last>.k-link {
+    padding: 1.5rem 1.5rem 1.5rem 2.5rem;
+    text-align: right;
+}
+.pageHeader .k-link label {display: block;}
+
+
+
+/* ------------------------------------- */
+/* ----- header ----- */
+/* ------------------------------------- */
+
+.divNavigation {
+    color: #FFFFFF;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 6rem;
+    background: rgba(35, 31, 32, 0.8);
+    width: 100%;
+    z-index: 100;
+    -moz-box-shadow: 0 3px rgba(35, 31, 32, 0.9);
+    -webkit-box-shadow: 0 3px rgba(35, 31, 32, 0.9);
+    box-shadow: 0 3px rgba(35, 31, 32, 0.9);
+}
+
+.pageHeader .backBTN i {
+    vertical-align: middle;
+    line-height: 6rem;
+
+}
+.pageHeader .backBTN i.backIcon {padding: 0 .3rem;}
+.pageHeader .backBTN i.icon-r-logo-marker {
+    font-size: 2.5rem;
+    padding-right: .3rem;
+}
+
+.pageHeader .backBTN {
+    font-size: 1.728rem;
+    line-height: 6rem;
+    height: 6rem;
+    padding: 0 .2rem 0 .4rem;
+    vertical-align:middle;
+    font-family: helvetica, Arial, sans-serif;
+}
+
+.pageHeader .backBTN em {
+    font-family: light_oblique;
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'medium';
-    src: url('fontface/aligntoday-medium-webfont.eot');
-    src: url('fontface/aligntoday-medium-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fontface/aligntoday-medium-webfont.woff') format('woff'),
-         url('fontface/aligntoday-medium-webfont.ttf') format('truetype'),
-         url('fontface/aligntoday-medium-webfont.svg#align_today65_medium') format('svg');
-    font-weight: normal;
-    font-style: normal;
+.branding {
+    line-height: 6rem;
+    height: 6rem;
+    vertical-align: top;
+    display: inline-block;
+    font-size: 3.2rem;
+    font-family: heavy;
 }
 
-@font-face {
-    font-family: 'thin';
-    src: url('fontface/aligntoday-thin-webfont.eot');
-    src: url('fontface/aligntoday-thin-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fontface/aligntoday-thin-webfont.woff') format('woff'),
-         url('fontface/aligntoday-thin-webfont.ttf') format('truetype'),
-         url('fontface/aligntoday-thin-webfont.svg#align_today35_thin') format('svg');
-    font-weight: normal;
-    font-style: normal;
+.branding i:before {vertical-align: top;}
+.branding .icon-r-asae-star {color: #E98D23;}
+.branding .icon-r-asae {color: #ffffff}
+
+.branding .icon-r-asae-star, .branding .icon-r-asae {text-decoration: none;
+    line-height: 6rem;
+    height: 6rem;
+    font-size: 3.456rem;
+    vertical-align: middle;
 }
 
-@font-face {
-    font-family: 'ultralight';
-    src: url('fontface/aligntoday-ultralight-webfont.eot');
-    src: url('fontface/aligntoday-ultralight-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fontface/aligntoday-ultralight-webfont.woff') format('woff'),
-         url('fontface/aligntoday-ultralight-webfont.ttf') format('truetype'),
-         url('fontface/aligntoday-ultralight-webfont.svg#align_today25_ultra_light') format('svg');
-    font-weight: normal;
-    font-style: normal;
+.appNavigation {
+    color: #FFFFFF;
+    position: fixed;
+    top: 6.3rem;
+    left: 0;
+    height: 6rem;
+    background: rgba(35, 31, 32, 0.4);
+    width: 100%;
+    z-index: 100;
+    font-size: 0;
 }
 
+.appNavigation a {
+    width: 50%;
+    display: inline-block;
+    font-size: 3rem;
+    text-align: center;
+    line-height: 6rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.46rem;
+    font-family: heavy;
+}
+
+
+.appNavigation a.active {background: rgba(35, 31, 32, 0.4);}
+
+/* ------------------------------------- */
+/* ----- Tracker History ----- */
+/* ------------------------------------- */
+
+.mainContent.history {vertical-align: top; padding-top: 12.7rem;}
+
+.mainContent.history li.trackerInfo {
+    font-size: 2.16rem;
+    font-family: medium;
+    line-height: 1em;
+    text-align: left;
+    display: block;
+    margin-bottom: .2rem;
+}
+.mainContent.history li.trackerInfo a {
+    padding: 2.2rem 2.5rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+.mainContent.history li.trackerInfo a > * {display: table-cell; }
+.mainContent.history li.trackerInfo a .historyDate {width: 15rem;}
+
+.mainContent.history li.trackerInfo a span.historyDistance {
+    text-align: right;
+    font-family: helvetica, Arial, sans-serif;
+    padding-right: 1.75rem;
+    width: 7rem;
+}
+.mainContent.history li.trackerInfo a i {
+    width: 1.5rem;
+    text-align: center;
+}
+
+.topGradient {
+    background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0)));
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+    background: -o-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+    background: -ms-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 12.3rem;
+    width: 100%;
+    z-index: 50;
+}
+
+/* ------------------------------------- */
+/* ----- CSS Preloader  ----- */
+/* ------------------------------------- */
+
+.loading {
+    width: 7.2rem;
+    height: 7.2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -3.6rem;
+    margin-top: -3.6rem;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: rgba(28, 61, 111, 0.57);
+    -moz-box-shadow: 0 0 0px 6px rgba(28, 61, 111, 0.8);
+    -webkit-box-shadow: 0 0 0px 6px rgba(28, 61, 111, 0.8);
+    box-shadow: 0 0 0px 6px rgba(28, 61, 111, 0.8);
+}
+
+.loading:after {
+    content: "";
+    position: absolute;
+    top: 1.7rem;
+    left: 1.7rem;
+    width: 1rem;
+    height: 1rem;
+    background: #FFFFFF;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-animation: rotate 1s infinite linear;
+    animation: rotate 1s infinite linear;
+    -webkit-transform-origin: 2rem 2rem;
+}
+
+@-webkit-keyframes rotate {
+    from {transform:rotate(0deg);-webkit-transform:rotate(0deg);}
+    to {transform:rotate(360deg);-webkit-transform:rotate(360deg);}
+}
+
+@keyframes rotate {
+    from {transform:rotate(0deg);-webkit-transform:rotate(0deg);}
+    to {transform:rotate(360deg);-webkit-transform:rotate(360deg);}
+}
+
+
+
+/* ------------------------------------- */
+/* ----- Kendo Window ----- */
+/* ------------------------------------- */
+
+.k-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10001;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .7;
+}
+.k-widget.k-window {
+    background: #ffffff;
+    width: 80% !important;
+    left: 10% !important;
+    border: none;
+    -moz-box-shadow: 0 0 20px rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 20px rgba(0,0,0,.5);
+    box-shadow: 0 0 20px rgba(0,0,0,.5);
+    position: fixed;
+}
+
+.k-window-titlebar.k-header {
+    background: #FFFFFF;
+    border-color: #FFFFFF;
+    height: auto;
+    padding: .3em 0;
+    color: #585859;
+    font-family: helvetica, Arial, sans-serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1em;
+    margin-bottom: 0 !important;
+}
+div.dialogMessage {
+    text-align: center;
+    font-size: 2.1rem;
+    color: #585859;
+    padding: 0 2rem;
+    line-height: 1.2em;
+}
+.dialogButtons {
+    margin: 1.5rem 0;
+    text-align: center;
+    width: 100%;
+    line-height: 1em;
+}
+.dialogButtons button.k-button {
+    border: none;
+    background: #ffffff;
+    color: #585859;
+    font-weight: 300;
+    font-family: helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 3rem;
+    padding: 0px 40px;
+    margin: 0;
+    width: 33.33%;
+    display: inline-block;
+}
+
+@media (max-width: 480px) {
+    /* ------------------------------------- */
+    /* ----- Media Queries ----- */
+    /* ------------------------------------- */
+    html {font-size: 45%}
+
+    h4 {font-size: 2rem;}
+    .branding .icon-r-asae-star, .branding .icon-r-asae {
+        text-decoration: none;
+    }
+    input[type="text"], input[type="password"], .radoloInput {
+        font-family: light;
+    }
+
+    .k-picker-wrap .k-select, .k-numeric-wrap .k-select, .k-dropdown-wrap .k-select {width: 1em}
+    .pageHeader .k-menu .k-animation-container {right: 5px !important;}
+
+}
+
+/* ------------------------------------- */
+/* ----- style overrides (KEEP AT THE BOTTOM OF THE PAGE) ----- */
+/* ------------------------------------- */
+
+
+.top, .bottom, .right, .left {position: absolute;}
+.top {top: 0;}
+.left {left: 0;}
+.wide {width: 100% !important;}
+.right {right: 0; text-align: right;}
+.bottom {bottom: 0}
+.fr {float: right !important;}
+.fl {float: left !important;}
+.hide { display: none !important;}
+.center {text-align: center !important;}
+.alignRight {text-align: right !important}
+.lowercase {text-transform: lowercase !important}
+.clearNone {clear: none !important;}
+.clearBoth, .clear {clear: both !important;}
+.clearRight {clear: right !important;}
+.clearLeft {clear: left !important;}
+.half.fr {padding-left: .5em;}
+.half.fl {padding-right: .5em;}
+.half {display: block;width: 50%;}
+.smallCap {font-size: 80%; text-transform: uppercase}
+
+.app .loading {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-left: 0;
+    margin-top: 0;
+    background: rgba(255, 255, 255, 0.55);
+    -moz-box-shadow: 0 0 0px 6px rgba(255, 255, 255, 0.8);
+    -webkit-box-shadow: 0 0 0px 6px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0px 6px rgba(255, 255, 255, 0.8);
+    margin: 0 auto 4rem;
+}
 
 body {
-    background-color:#F89F33;
-    font-family: thin, 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    background: #1A3E6F;
+    font-family: Helvetica, Arial, sans-serif;
     font-size:12px;
     height:100%;
     margin:0px;
     padding:0px;
     width:100%;
-	color: #ffffff;
+    color: #ffffff;
 }
 
 /* Portrait layout (default) */
 .app {
     position:absolute;             /* position in the center of the screen */
-    left:50%;
+    left: 0;
     top:50%;
-    height:auto;                   
-    width:auto;                 
+    height:auto;
+    width:auto;
     text-align:center;
     padding: 0;    /* image height is 200px (bottom 20px are overlapped with text) */
-    margin: -85px 0 0 -129px; /*set offset when you figure it out */
-	font-size: 120px;
+    margin: -85px 0 0 0; /*set offset when you figure it out */
+    width: 100%;
 }
 
 /* Landscape layout (with min-width) */
@@ -100,38 +1174,41 @@ body {
     }
 }
 
-h1 {
-	font-size: 19px;
-	font-weight: normal;
-	margin: 0px;
-	overflow: visible;
-	text-align: center;
-	background: #ffffff;
-	color: #F89F33;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;	
-	padding: 2px 0;
+
+.app h1 {
+    font-size: 1.9rem;
+    font-weight: normal;
+    margin: 0px;
+    overflow: visible;
+    text-align: center;
+    background: #ffffff;
+    color: #1A3E6F;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 6px 30px;
+    font-weight: 300;
+    display: inline-block;
 }
 
 /* .event {
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;	
-    color:#FFFFFF;
-    font-size:12px;
-    margin:0px 30px;
-    padding:2px 0px;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+border-radius: 4px;
+color:#FFFFFF;
+font-size:12px;
+margin:0px 30px;
+padding:2px 0px;
 }
 
 .event.listening {
-    background-color:#333333;
-    display:block;
+background-color:#333333;
+display:block;
 }
 
 .event.received {
-    background-color:#4B946A;
-    display:none;
+background-color:#4B946A;
+display:none;
 } */
 
 /* ------------------------------------- */
@@ -139,57 +1216,57 @@ h1 {
 /* ------------------------------------- */
 
 .loader {
-	position: absolute;
-	top: 0;
-	left: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .loader i {
-	-webkit-animation-name: mubi-pop;
-	-webkit-animation-duration: 3s;
-	-webkit-animation-timing-function: ease-out;
-	-webkit-animation-iteration-count: infinite;
-	width: 13px;
-	height: 13px;
-	border-radius: 50%;
-	display: inline-block;
-	position: absolute;
-	background: #ffffff;
-	top: 96px;
+    -webkit-animation-name: mubi-pop;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-timing-function: ease-out;
+    -webkit-animation-iteration-count: infinite;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    background: #ffffff;
+    top: 96px;
 }
 @-webkit-keyframes mubi-pop {
-  0% {
-    -webkit-transform: scale(1,1);
-     opacity: 1;
-  }
-  25% {
-   -webkit-transform: scale(.95,.95); 
-     opacity: .25;
-  }
-  50% {
-   -webkit-transform: scale(1,1);  
-     opacity: 1;
-  }
-  75% {
-   -webkit-transform: scale(.95,.95); 
-     opacity: .25;
-  }
-  100% {
-   -webkit-transform: scale(1,1);  
-     opacity: 1;
-  }
+    0% {
+        -webkit-transform: scale(1,1);
+        opacity: 1;
+    }
+    25% {
+        -webkit-transform: scale(.95,.95);
+        opacity: .25;
+    }
+    50% {
+        -webkit-transform: scale(1,1);
+        opacity: 1;
+    }
+    75% {
+        -webkit-transform: scale(.95,.95);
+        opacity: .25;
+    }
+    100% {
+        -webkit-transform: scale(1,1);
+        opacity: 1;
+    }
 }
 
 .loader i:nth-child(1) {
-	-webkit-animation-delay:0.2s;
-	left: 56px;
+    -webkit-animation-delay:0.2s;
+    left: 56px;
 }
 .loader i:nth-child(2) {
-	-webkit-animation-delay:0.4s; 
-	left: 76px;
+    -webkit-animation-delay:0.4s;
+    left: 76px;
 }
 .loader i:nth-child(3) {
-	-webkit-animation-delay: 0.6s;
-	left: 95px;
+    -webkit-animation-delay: 0.6s;
+    left: 95px;
 }
 
 
@@ -198,13 +1275,13 @@ h1 {
     50% { opacity: 0.7; }
     to { opacity: 1.0; }
 }
- 
+
 @-webkit-keyframes fade {
     from { opacity: 1.0; }
     50% { opacity: 0.7; }
     to { opacity: 1.0; }
 }
- 
+
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;

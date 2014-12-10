@@ -1,21 +1,21 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--
-       Licensed to the Apache Software Foundation (ASF) under one
-       or more contributor license agreements.  See the NOTICE file
-       distributed with this work for additional information
-       regarding copyright ownership.  The ASF licenses this file
-       to you under the Apache License, Version 2.0 (the
-       "License"); you may not use this file except in compliance
-       with the License.  You may obtain a copy of the License at
+        Licensed to the Apache Software Foundation (ASF) under one
+        or more contributor license agreements.  See the NOTICE file
+        distributed with this work for additional information
+        regarding copyright ownership.  The ASF licenses this file
+        to you under the Apache License, Version 2.0 (the
+        "License"); you may not use this file except in compliance
+        with the License.  You may obtain a copy of the License at
 
          http://www.apache.org/licenses/LICENSE-2.0
 
-       Unless required by applicable law or agreed to in writing,
-       software distributed under the License is distributed on an
-       "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-       KIND, either express or implied.  See the License for the
-       specific language governing permissions and limitations
-       under the License.
+        Unless required by applicable law or agreed to in writing,
+        software distributed under the License is distributed on an
+        "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+        KIND, either express or implied.  See the License for the
+        specific language governing permissions and limitations
+        under the License.
 -->
 <html>
 <head>
@@ -24,21 +24,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">    
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <link href="css/applicationIcons.css" rel="stylesheet" type="text/css" />
-    <title>ASAE Mobile Members</title>
+    <!-- We need only local css for the first page here  -->
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <title>ASAE Mobile Member Management</title>
+    <!-- We will change our base so we can load resource from the web server -->
+    <base />
 </head>
 <body>
+
     <div class="app">
-        <i class="icon-r-Logo-all-nodots"></i>
-        <div class="loader">
-            <i></i><i></i><i></i>
+        <div class="loading">
         </div>
-        <h1 id="message" class="blink">
-            Connecting to ASAE</h1>
+        <h1 id="message">Connecting to ASAE</h1>
     </div>
-    <script type="text/javascript" src="cordova.js"></script>
+<!--    <script type="text/javascript" src="cordova.js"></script>-->
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
         var onDeviceReady = function () {
@@ -51,8 +51,8 @@
             if (states[conn] === 'No network connection') {
                 var msg = document.getElementById('message');
                 msg.innerHTML = "Check Your Connection"
-                msg.style.backgroundColor = "red";
-                msg.style.color = "black";
+                msg.style.backgroundColor = "tomato";
+                msg.style.color = "white";
 
                 //we will want to check for a new network connection in a second or so
                 setTimeout(onDeviceReady, 1000);
